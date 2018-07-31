@@ -1,0 +1,10 @@
+.painelResumo{
+    display: flex;
+    flex-direction: column;
+}
+
+.itemResumo{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
