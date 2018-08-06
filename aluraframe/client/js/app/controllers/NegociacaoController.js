@@ -21,8 +21,18 @@ class NegociacaoController{
 
     adiciona(event) {
         event.preventDefault();
-        let negociacao = new Negociacao(new Date(this.inputData.value.split("-")),this.inputQuantidade.value,this.inputValor.value);
-        console.log(`Valor: ${this.inputQuantidade.value}`);
+        console.log(`vetor original: ${this.inputData.value.split("-")}`);
+        let vetorData = this.inputData.value.split("-")
+          .map((item,index)=>{
+              if(index==1){
+                  return item-1;
+              }
+              return item;
+           });
+        console.log("vetor corrigido:" + vetorData);   
+        let negociacao = new Negociacao(new Date(...vetorData),this.inputQuantidade.value,this.inputValor.value);
+        console.log(`quantidade: ${this.inputQuantidade.value}`);
         console.log(`Data: ${this.inputData.value}`);
+        console.log(`Data: ${negociacao.data}`);
     }
 }
